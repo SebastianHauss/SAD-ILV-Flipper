@@ -1,3 +1,7 @@
+package at.technikum.state;
+
+import at.technikum.Flipper;
+
 public class NoCreditState extends State {
 
     public NoCreditState(Flipper flipper) {
@@ -6,23 +10,23 @@ public class NoCreditState extends State {
 
     @Override
     public void pressStart() {
-        System.out.println("Pls insert coin");
+        System.out.println("Kein Kredit vorhanden!");
+        System.out.println("Bitte Münze einwerfen.");
     }
 
     @Override
     public void flipLeft() {
-
+        // Zeige Highscore
     }
 
     @Override
     public void flipRight() {
-
+        // Zeige Highscore
     }
 
     @Override
     public void insertCoin() {
-        super.insertCoin();
-        System.out.println("Changing into Credit State!");
-        getFlipper().setState(new ReadyState(getFlipper()));
+        flipper.incrementCredit();
+        flipper.transitionToReady();
     }
 }
