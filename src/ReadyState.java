@@ -1,6 +1,6 @@
-public class CreditState extends State {
+public class ReadyState extends State {
 
-    protected CreditState(Flipper flipper) {
+    protected ReadyState(Flipper flipper) {
         super(flipper);
     }
 

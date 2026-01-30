@@ -23,6 +23,6 @@ public class NoCreditState extends State {
     public void insertCoin() {
         super.insertCoin();
         System.out.println("Changing into Credit State!");
-        getFlipper().setState(new CreditState(getFlipper()));
+        getFlipper().setState(new ReadyState(getFlipper()));
     }
 }
