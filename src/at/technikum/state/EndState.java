@@ -1,6 +1,7 @@
 package at.technikum.state;
 
 import at.technikum.Flipper;
+import at.technikum.ScoreBoard;
 import at.technikum.command.GuessNumberCommand;
 
 import java.util.Scanner;
@@ -24,6 +25,8 @@ public class EndState extends State {
             flipper.incrementCredit();
             System.out.println("+1 Kredit! Gesamt: " + flipper.getCredits());
         }
+
+        ScoreBoard.getInstance().reset();
 
         if (flipper.getCredits() > 0) {
             flipper.transitionToReady();
