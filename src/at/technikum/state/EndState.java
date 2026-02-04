@@ -26,7 +26,7 @@ public class EndState extends State {
             System.out.println("+1 Kredit! Gesamt: " + flipper.getCredits());
         }
 
-        // Spiel vorbei -> ScoreBoard resetten
+        // Spiel vorbei → ScoreBoard resetten
         ScoreBoard.getInstance().reset();
 
         if (flipper.getCredits() > 0) {
