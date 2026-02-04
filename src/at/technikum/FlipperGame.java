@@ -42,7 +42,7 @@ public class FlipperGame {
     }
 
     public void play() {
-        System.out.println("=== FLIPPER GAME START ===");
+        System.out.println("\n=== FLIPPER GAME START ===\n");
 
         flipper.pressStart(); // NoCredit -> Warnung
         flipper.insertCoin(); // -> Ready

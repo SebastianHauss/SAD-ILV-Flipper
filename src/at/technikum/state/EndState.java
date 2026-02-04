@@ -14,7 +14,7 @@ public class EndState extends State {
 
     @Override
     public void pressStart() {
-        System.out.println("=== BONUS SPIEL ===");
+        System.out.println("\n=== BONUS SPIEL ===\n");
 
         Scanner scanner = new Scanner(System.in);
 
