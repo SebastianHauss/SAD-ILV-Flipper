@@ -16,22 +16,22 @@ public class Flipper {
     }
 
     public void transitionToReady() {
-        System.out.println("Wechsle in den Ready-Zustand!");
+        System.out.println("-> Wechsle in den Ready-Zustand!");
         this.state = new ReadyState(this);
     }
 
     public void transitionToPlaying() {
-        System.out.println("Wechsle in den Playing-Zustand!");
+        System.out.println("-> Wechsle in den Playing-Zustand!");
         this.state = new PlayingState(this);
     }
 
     public void transitionToNoCredit() {
-        System.out.println("Wechsle in den NoCredit-Zustand!");
+        System.out.println("-> Wechsle in den NoCredit-Zustand!");
         this.state = new NoCreditState(this);
     }
 
     public void transitionToEndState() {
-        System.out.println("Wechsle in den EndState!");
+        System.out.println("-> Wechsle in den EndState!");
         this.state = new EndState(this);
     }
 
