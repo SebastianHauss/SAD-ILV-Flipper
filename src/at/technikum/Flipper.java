@@ -1,15 +1,18 @@
 package at.technikum;
 
+import at.technikum.command.*;
 import at.technikum.state.*;
 
 public class Flipper {
     private State state;
     private int credits;
-    private int ballsLost = 0;
+    private int ballsLost;
     private static final int MAX_BALLS = 3;
 
     Flipper() {
         this.state = new NoCreditState(this);
+        this.credits = 0;
+        this.ballsLost = 0;
     }
 
     public void transitionToReady() {
@@ -32,26 +35,32 @@ public class Flipper {
         this.state = new EndState(this);
     }
 
-    public static void main(String[] args) {
-        Flipper flipper = new Flipper();
-        flipper.play();
+    public void pressStart() {
+        state.pressStart();
     }
 
-    public void play() {
-        System.out.println("=== FLIPPER GAME ===\n");
+    public void insertCoin() {
+        state.insertCoin();
+    }
 
-        pressStart();
-        insertCoin();
-        pressStart();
-        flipLeft();
-        flipRight();
-        pressStart();
+    public void flipLeft() {
+        state.flipLeft();
+    }
 
-        ((PlayingState) state).ballLost();
-        ((PlayingState) state).ballLost();
-        ((PlayingState) state).ballLost();
+    public void flipRight() {
+        state.flipRight();
+    }
 
-        pressStart();
+    public void incrementCredit() {
+        credits++;
+    }
+
+    public void decrementCredit() {
+        credits--;
+    }
+
+    public int getCredits() {
+        return this.credits;
     }
 
     public void loseBall() {
@@ -69,33 +78,5 @@ public class Flipper {
 
     public int getBallsLost() {
         return ballsLost;
-    }
-
-    public void incrementCredit() {
-        credits++;
-    }
-
-    public void decrementCredit() {
-        credits--;
-    }
-
-    public int getCredits() {
-        return this.credits;
-    }
-
-    public void pressStart() {
-        state.pressStart();
-    }
-
-    public void insertCoin() {
-        state.insertCoin();
-    }
-
-    public void flipLeft() {
-        state.flipLeft();
-    }
-
-    public void flipRight() {
-        state.flipRight();
     }
 }
